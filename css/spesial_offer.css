@@ -1,0 +1,242 @@
+html {
+  scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: inset 0 0 10px rgba(72, 72, 72, 0.5);
+}
+
+header img {
+  height: 70px;
+
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  padding: 8px 15px;      
+  border-radius: 5px;      
+  display: inline-block;   
+  transition: background 0.3s, color 0.3s;
+}
+nav a:hover {
+    background: #0026ff;
+    color: #ffffff;
+
+}
+
+.a {
+ color: #0026ff;
+  padding: 12px 18px;      
+  border-radius: 25px;      
+  display: inline-block;   
+
+  transition: background 0.3s, color 0.3s;
+}
+.a:hover {
+    background: #0026ff;
+    color: #ffffff;
+}
+
+
+.special-hero {
+  background: url('hero.jpg') center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.433), rgba(0,0,0,0.6)),
+  url('https://images.unsplash.com/photo-1549278480-e3fc510d1562?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-blend-mode: darken;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.special-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 4rem;
+  color: rgb(0, 0, 255);
+}
+
+.special-hero p {
+  font-size: 1.3rem;
+}
+
+.offers-filter {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+}
+.filter-btn {
+  padding: 8px 20px;
+  border: 2px solid #002aff;
+  background: transparent;
+  color: #0015ff;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: #001eff;
+  color: white;
+}
+
+
+.offers-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 40px;
+}
+.offer-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+.offer-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.card-content {
+  padding: 15px;
+}
+.card-content h3 {
+  margin: 0 0 10px;
+  color: #0400ff;
+}
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0400ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.offers {
+  display: flex;              
+  flex-wrap: wrap;          
+  justify-content: center;    
+  gap: 2rem;                  
+  padding: 3rem;
+}
+
+.offer-card {
+  width: 300px;               
+  background: #ffffff;
+  border: 2px solid #001eff;
+  border-radius: 15px;
+  padding: 3rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;   
+
+}
+
+.offer-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;          
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+
+
+.offer-card h2 {
+  color: #0056b3;
+  margin-bottom: 1rem;
+}
+
+.offer-card p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: #002fff;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #000a59;
+}
+
+footer{
+  background: black;
+  color: white;
+  padding: 20px 50px;
+  margin-top: 50px;
+
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 20px;
+}
+.footer-left{
+  font-size:14px
+}
+.back-top {
+  display: inline-block;
+  background: #0044ff;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease; 
+  margin-left: 60px;
+}
+
+.back-top i {
+  margin-right: 8px;
+}
+
+.back-top:hover {
+  background: #002db3;
+  transform: translateY(-6px); 
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3); 
+}

@@ -1,0 +1,252 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  opacity: 0;
+  animation: bodyFade 0.7s ease forwards;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: inset 0 0 10px rgba(72, 72, 72, 0.5);
+  animation: slideDown 0.8s ease forwards;
+}
+
+header img {
+  height: 70px;
+  animation: fadeIn 1s ease forwards;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+  animation: fadeInUp 1s ease forwards;
+}
+nav a:hover {
+  background: #0026ff;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+
+.background-container {
+  background: url('hero.jpg') center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  url('/img/facilites.png');
+  background-blend-mode: darken;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.background-container h1 {
+  font-size: 7rem;
+  margin-top: 10px;
+  display: inline-block;
+  transition: 0.3s;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+.a {
+  color: #0026ff;
+  padding: 12px 18px;
+  border-radius: 25px;
+  display: inline-block;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.6s forwards;
+}
+.a:hover {
+  background: #0026ff;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+
+.paragrapht1 h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 40px 10px;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.5s forwards;
+}
+
+.p1 {
+  font-size: 14px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+  margin-bottom: 70px;
+  opacity: 0;
+  animation: fadeIn 1s ease 0.7s forwards;
+}
+
+
+#gallery {
+  background-color: #0026ff;
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+  animation: fadeIn 1s ease forwards;
+}
+
+#gallery h2 {
+  margin-bottom: 70px;
+  font-size: 30px;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.gallery div {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 300px;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  
+}
+.gallery div:nth-child(1) { animation-delay: 0.3s; }
+.gallery div:nth-child(2) { animation-delay: 0.5s; }
+.gallery div:nth-child(3) { animation-delay: 0.7s; }
+.gallery div:nth-child(4) { animation-delay: 0.3s; }
+.gallery div:nth-child(5) { animation-delay: 0.5s; }
+.gallery div:nth-child(6) { animation-delay: 0.7s; }
+.gallery div:nth-child(7) { animation-delay: 0.3s; }
+.gallery div:nth-child(8) { animation-delay: 0.5s; }
+.gallery div:nth-child(9) { animation-delay: 0.7s; }
+.gallery div:nth-child(10) { animation-delay: 0.3s; }
+.gallery div:nth-child(11) { animation-delay: 0.5s; }
+
+
+.gallery img {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+  
+  .gallery img:hover {
+  transform: scale(1.08);
+}
+
+
+.gallery p {
+  color: black;
+  margin: 5px 0 0;
+  font-weight: 500;
+}
+
+
+footer {
+  background: black;
+  color: white;
+  padding: 20px 50px;
+  margin-top: 50px;
+  animation: fadeIn 1s ease forwards;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left {
+  font-size: 14px;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+.back-top {
+  display: inline-block;
+  background: #0044ff;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-left: 60px;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.6s forwards;
+}
+
+.back-top:hover {
+  background: #002db3;
+  transform: translateY(-6px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+
+@keyframes bodyFade {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+h1, h2, h3, p {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+h1 { animation-delay: 0.3s; }
+h2 { animation-delay: 0.5s; }
+h3 { animation-delay: 0.7s; }
+p  { animation-delay: 0.9s; }
+
