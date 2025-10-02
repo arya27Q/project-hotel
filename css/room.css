@@ -6,8 +6,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  animation-delay: 0.5s;
-  animation: fadeSlide 1s ease forwards;
 }
 
 header {
@@ -20,16 +18,12 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: inset 0 0 10px rgba(72, 72, 72, 0.5);
-  opacity: 0;
-  animation: fadeSlide 0.8s ease forwards;
-  animation-delay: 0s;
+ 
 }
 
 header img {
   height: 70px;
-  opacity: 0;
-  animation: fadeSlide 0.8s ease forwards;
-  animation-delay: 0.2s; 
+ 
 }
 
 nav a {
@@ -40,9 +34,7 @@ nav a {
   padding: 8px 15px;
   border-radius: 5px;
   display: inline-block;
-  opacity: 0;
-  animation: fadeSlide 0.8s ease forwards;
-  animation-delay: 0.2s; 
+  
 }
 nav a:hover {
   background: #0026ff;
