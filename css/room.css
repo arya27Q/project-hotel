@@ -44,7 +44,6 @@ nav a:hover {
   transform: scale(1.1);
 }
 .background {
-  background: url('hero.jpg') center/cover no-repeat;
   height: 60vh;
   display: flex;
   flex-direction: column;
@@ -151,6 +150,7 @@ nav a:hover {
   text-align: center;
   font-size: 26px;
   margin-bottom: 40px;
+  color: #004aad;
 }
 
 .room-box {
