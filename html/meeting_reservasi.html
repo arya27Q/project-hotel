@@ -7,7 +7,7 @@
     <title>Luxury Hotel</title>
 
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="/css/reservasi_room.css" />
+    <link rel="stylesheet" href="/css/meeting_reservasi.css" />
   </head>
   <body>
     <header>
@@ -88,7 +88,7 @@
 
       <div class="booking-list">
         <div class="room-card">
-          <img src="/img/standartroom.png" alt="Standard Room" />
+          <img src="/img/ball room.png" alt="Standard Room" />
           <h3>Standard Room</h3>
           <p>Rp.250.000,00</p>
           <div class="options">
@@ -97,7 +97,7 @@
         </div>
 
         <div class="room-card">
-          <img src="/img/Suite.png" alt="Suite Room" />
+          <img src="/img/arjuna ballroom.png" alt="Suite Room" />
           <h3>Suite Room</h3>
           <p>Rp.750.000,00</p>
           <div class="options">
@@ -106,7 +106,17 @@
         </div>
 
         <div class="room-card">
-          <img src="/img/room.png" alt="Deluxe Room" />
+          <img src="/img/nakula ballroom.png" alt="Deluxe Room" />
+          <h3>Deluxe Room</h3>
+          <p>Rp.550.000,00</p>
+          <div class="options">
+            <button onclick="addBooking('Deluxe Room', 550000)">Select</button>
+          </div>
+        </div>
+
+        
+      <div class="room-card">
+          <img src="/img/bima ball room.png" alt="Deluxe Room" />
           <h3>Deluxe Room</h3>
           <p>Rp.550.000,00</p>
           <div class="options">
@@ -115,11 +125,13 @@
         </div>
       </div>
 
+      
+
       <div class="my-booking">
         <h2>My Booking</h2>
         <ul id="booking-list"></ul>
         <p>Total : <span id="total-price">0</span></p>
-         <a href="/html/payment_reservation_room.html" class="btn-book"> Start Booking</a>
+        <button class="btn-book">Book Now</button>
       </div>
     </section>
     </section>

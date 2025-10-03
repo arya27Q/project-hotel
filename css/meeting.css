@@ -254,15 +254,14 @@ nav a:hover {
   font-weight: bold;
   padding: 15px 40px;
   border-radius: 20px;
-  transition: 0.3s;
+  transition: 0.3s !important;
   display: inline-block;
   text-decoration: none;
 }
 
 .btn-book:hover {
   background: #0036b8;
-  transform: scale(1.05);
-
+  transform: scale(1.05) !important; 
 }
 
 footer{

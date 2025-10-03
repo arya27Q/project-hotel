@@ -1,0 +1,196 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  opacity: 0;
+  animation: bodyFade 0.7s ease forwards ;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: inset 0 0 10px rgba(72, 72, 72, 0.5);
+}
+
+header img {
+  height: 70px;
+
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  padding: 8px 15px;      
+  border-radius: 5px;      
+  display: inline-block;   
+  transition: background 0.3s, color 0.3s;
+}
+nav a:hover {
+    background: #0026ff;
+    color: #ffffff;
+
+}
+
+.a {
+ color: #0026ff;
+  padding: 12px 18px;      
+  border-radius: 25px;      
+  display: inline-block;   
+  transition: background 0.3s, color 0.3s;
+}
+.a:hover {
+    background: #0026ff;
+    color: #ffffff;
+}
+
+/* Hero */
+.background {
+  background: url('/img/reservation_room.png') center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('/img/reservation_room.png');
+}
+.background h1 {
+  font-size: 5rem;
+}
+
+.payment-container {
+  padding: 40px;
+  background: #fdfbf6; /* krem muda sesuai desain */
+}
+
+.payment-container h2 {
+  text-align: left;     /* rata kiri */
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.payment-box {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Method card */
+.method-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.method-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.method-text p {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.method-text small {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.icons img {
+  width: 45px;
+  height: 30px;
+  object-fit: contain;   /* agar proporsi gambar tidak gepeng */
+}
+
+.pay-btn {
+  align-self: flex-end;
+  background: #0044ff;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.pay-btn:hover {
+  background: #002db3;
+}
+
+
+/* Booking summary */
+.booking-summary {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff;
+  font-size: 14px;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: #fff;
+  padding: 20px 40px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+footer p {
+  margin: 4px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.back-top {
+  display: inline-block;
+  background: #0044ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+.back-top:hover {
+  background: #002db3;
+}
+
+/* Animations */
+@keyframes bodyFade { to { opacity: 1; } }

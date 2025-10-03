@@ -270,7 +270,7 @@ nav a:hover {
   border-bottom: none;   
 }
 
-.btn-book  { 
+.btn-book {
   background: #0026ff;
   color: #ffffff !important;
   border: none;
@@ -278,13 +278,13 @@ nav a:hover {
   font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s ease;
   margin-top: 10px;
 }
 
 .btn-book:hover {
   background: #001bb3;
-  transform: scale(1.05) !important;
+  transform: scale(1.05);
 }
 
 footer {
