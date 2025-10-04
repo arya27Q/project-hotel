@@ -1,29 +1,40 @@
-// ---------------- Booking list & total ----------------
-document.addEventListener("DOMContentLoaded", function() {
-  // Dummy data booking
-  const dummyBooking = {
-    list:[
-      {roomName:"Deluxe Room", checkin:"2025-10-05", checkout:"2025-10-06", price:500000},
-      {roomName:"Suite", checkin:"2025-10-05", checkout:"2025-10-07", price:1000000}
-    ],
-    total:1500000
-  };
-  localStorage.setItem("bookingData", JSON.stringify(dummyBooking));
+// Ambil elemen booking list & total
+const bookingList = document.getElementById("booking-list");
+const totalPriceEl = document.getElementById("total-price");
 
-  const data = localStorage.getItem("bookingData");
-  if (!data) return;
-  const booking = JSON.parse(data);
+// Load data dari localStorage saat halaman dibuka
+let bookingData = JSON.parse(localStorage.getItem("bookingData")) || { list: [], total: 0 };
+updateBookingList();
 
-  const listContainer = document.getElementById("booking-list");
-  if(listContainer){
-    listContainer.innerHTML = booking.list.map(item => `
-      <li>${item.roomName} (${item.checkin} → ${item.checkout}) - Rp.${item.price.toLocaleString()}</li>
-    `).join("");
+// Fungsi update tampilan booking
+function updateBookingList() {
+  bookingList.innerHTML = bookingData.list.map(item => `
+    <li>${item.roomName} (${item.checkin} → ${item.checkout}) - Rp.${item.price.toLocaleString()}</li>
+  `).join("");
+  totalPriceEl.textContent = `Rp.${bookingData.total.toLocaleString()}`;
+}
+
+// Fungsi tambah booking saat klik select
+function addBooking(roomName, price) {
+  const checkin = document.getElementById("checkin").value;
+  const checkout = document.getElementById("checkout").value;
+  
+  if(!checkin || !checkout) {
+    alert("Silakan pilih tanggal check-in dan check-out terlebih dahulu!");
+    return;
   }
 
-  const totalPrice = document.getElementById("total-price");
-  if(totalPrice) totalPrice.textContent = `Rp.${booking.total.toLocaleString()}`;
-});
+  // Tambahkan ke bookingData
+  bookingData.list.push({ roomName, checkin, checkout, price });
+  bookingData.total += price;
+
+  // Simpan ke localStorage
+  localStorage.setItem("bookingData", JSON.stringify(bookingData));
+
+  // Update tampilan
+  updateBookingList();
+}
+
 
 // ---------------- Show Payment Floating Form ----------------
 window.showPayment = function(icon){

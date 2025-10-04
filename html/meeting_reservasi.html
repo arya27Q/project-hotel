@@ -25,7 +25,7 @@
     </header>
 
     <section class="background">
-    <h1>RESERVATION ROOM</h1>
+    <h1>RESERVATION MEETING ROOM</h1>
     </section>
     <section class="why">
       <h2 class="stay">
@@ -74,53 +74,53 @@
        <div class="date-form">
   <label>
     Check-in
-    <input type="date" id="checkin" value="2025-10-10" />
+    <input type="date" id="meetingDate" />
   </label>
   <label>
     Check-out
-    <input type="date" id="checkout" value="2025-10-12" />
+    <input type="date" id="startTime" />
   </label>
   <label>
     Order date
-    <input type="date" id="orderdate" value="2025-10-08" />
+    <input type="date" id="endTime" />
   </label>
 </div>
 
       <div class="booking-list">
         <div class="room-card">
-          <img src="/img/ball room.png" alt="Standard Room" />
-          <h3>Standard Room</h3>
-          <p>Rp.250.000,00</p>
+          <img src="/img/ball room.png" alt="grand ballroom" />
+          <h3>Grand Ballroom</h3>
+          <p>Rp.2.000.000,00</p>
           <div class="options">
-            <button onclick="addBooking('Standard Room', 250000)">select </button>
+            <button onclick="addBooking('Grand Ballroom', 2000000)">select </button>
           </div>
         </div>
 
         <div class="room-card">
-          <img src="/img/arjuna ballroom.png" alt="Suite Room" />
-          <h3>Suite Room</h3>
-          <p>Rp.750.000,00</p>
+          <img src="/img/arjuna ballroom.png" alt="arjuna ballroom" />
+          <h3>Arjuna Ballroom</h3>
+          <p>Rp.2.500.000,00</p>
           <div class="options">
-            <button onclick="addBooking('Suite Room', 750000)">Select</button>
+            <button onclick="addBooking('Arjuna Ballroom', 2500000)">Select</button>
           </div>
         </div>
 
         <div class="room-card">
-          <img src="/img/nakula ballroom.png" alt="Deluxe Room" />
-          <h3>Deluxe Room</h3>
-          <p>Rp.550.000,00</p>
+          <img src="/img/nakula ballroom.png" alt="nakula ballroom" />
+          <h3>Nakula Ballroom</h3>
+          <p>Rp.3.350.000,00</p>
           <div class="options">
-            <button onclick="addBooking('Deluxe Room', 550000)">Select</button>
+            <button onclick="addBooking('nakula Ballroom', 3350000)">Select</button>
           </div>
         </div>
 
         
       <div class="room-card">
-          <img src="/img/bima ball room.png" alt="Deluxe Room" />
-          <h3>Deluxe Room</h3>
-          <p>Rp.550.000,00</p>
+          <img src="/img/bima ball room.png" alt="bima ballroom" />
+          <h3>Bima Ballroom</h3>
+          <p>Rp.5.000.000,00</p>
           <div class="options">
-            <button onclick="addBooking('Deluxe Room', 550000)">Select</button>
+            <button onclick="addBooking('Bima Ballroom', 5000000)">Select</button>
           </div>
         </div>
       </div>
@@ -156,6 +156,6 @@
       </div>
     </footer>
 
-    <script src="/js/reservation_room.js"></script>
+    <script src="/js/reservation_meeting.room.js"></script>
   </body>
 </html>
