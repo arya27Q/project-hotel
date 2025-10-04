@@ -1,3 +1,4 @@
+
 html {
   scroll-behavior: smooth;
 }
@@ -6,8 +7,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  opacity: 0;
-  animation: bodyFade 0.7s ease forwards ;
 }
 
 header {
@@ -20,11 +19,12 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: inset 0 0 10px rgba(72, 72, 72, 0.5);
+  animation: slideDown 0.8s ease forwards;
 }
 
 header img {
   height: 70px;
-
+  animation: fadeIn 1s ease forwards;
 }
 
 nav a {
@@ -32,165 +32,232 @@ nav a {
   text-decoration: none;
   color: black;
   font-weight: 500;
-  padding: 8px 15px;      
-  border-radius: 5px;      
-  display: inline-block;   
-  transition: background 0.3s, color 0.3s;
+  padding: 8px 15px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+  animation: fadeInUp 1s ease forwards;
 }
+
 nav a:hover {
-    background: #0026ff;
-    color: #ffffff;
-
+  background: #0026ff;
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
-.a {
- color: #0026ff;
-  padding: 12px 18px;      
-  border-radius: 25px;      
-  display: inline-block;   
-  transition: background 0.3s, color 0.3s;
-}
-.a:hover {
-    background: #0026ff;
-    color: #ffffff;
-}
-
-/* Hero */
 .background {
-  background: url('/img/reservation_room.png') center/cover no-repeat;
+  background: url('hero.jpg') center/cover no-repeat;
   height: 60vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url('/img/reservation_room.png');
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 50px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.356), rgba(0, 0, 0, 0.4)),
+  url('/img/bayar.png');
+  background-blend-mode: darken;
+
+  
 }
+
 .background h1 {
-  font-size: 5rem;
+  font-size: 6rem;
+  margin-top: 10px;
+  display: inline-block;
+ 
 }
 
+.a {
+  color: #0026ff;
+  padding: 15px 18px;
+  border-radius: 25px;
+  display: inline-block;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.a:hover {
+  background: #0026ff;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.bg{
+   background: #0026ff;
+
+  padding: 40px 20px; 
+  text-align: center;
+}
+.method {
+  display: flex;      
+  margin: 30px 30px;         
+  max-width: 190px;          
+  padding: 20px 30px;       
+  background: #fff;          
+  border-radius: 15px;     
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+}
+.method h3 {
+font-size: 20px;
+  color: #333;
+
+}
 .payment-container {
-  padding: 40px;
-  background: #fdfbf6; /* krem muda sesuai desain */
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 20px;
 }
-
-.payment-container h2 {
-  text-align: left;     /* rata kiri */
-  margin-bottom: 20px;
-  font-size: 26px;
+.pay-btn {
+  display: inline-block;
+  background: #0026ff;
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+ 
+}
+.pay-btn:hover {
+  background: #001bb3;
+  transform: scale(1.05);
 }
 
 .payment-box {
-  display: flex;
-  gap: 30px;
-  margin-top: 20px;
+  flex: 2;
   background: #fff;
-  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 900px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+ 
+}
+
+.payment-box ul{
+  list-style: none; 
+  padding: 0;
+  margin: 0;        
+  
+}
+
+.payment-box h3,
+.payment-box p,
+.payment-box ul,
+.payment-box label {
+  text-align: left;
+}
+
+
+.payment-menu {
+  position: fixed;
+  bottom: 100px;
+  left: 200px;
+  display: none;
+  background: white;
+  padding: 15px;
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-/* Method card */
-.method-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.method-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.method-text p {
-  margin: 0 0 6px 0;
-  font-size: 14px;
-  color: #333;
-}
-
-.method-text small {
-  font-size: 12px;
-  color: #666;
-  line-height: 1.4;
-}
-
-.icons {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.icons img {
-  width: 45px;
-  height: 30px;
-  object-fit: contain;   /* agar proporsi gambar tidak gepeng */
-}
-
-.pay-btn {
-  align-self: flex-end;
-  background: #0044ff;
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-.pay-btn:hover {
-  background: #002db3;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  z-index: 999;
+  text-align: center !important;
 }
 
 
-/* Booking summary */
-.booking-summary {
-  flex: 1;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  background: #fff;
-  font-size: 14px;
+
+.payment-menu p {
+  margin-bottom: 10px; 
+}
+.payment-box{
+  text-align: left;
+}
+#overlay{
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.5);
+  z-index:999;
+}
+#floatingForm{
+  display:none;
+  position:fixed;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.25);
+  z-index:1000;
+  width:310px;
+}
+#floatingForm input{
+  width:100%;
+  padding:8px;
+  margin:5px 0 10px 0;
 }
 
-/* Footer */
-footer {
-  background: #111;
-  color: #fff;
-  padding: 20px 40px;
-  margin-top: 40px;
+.form-buttons{
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
+  margin-top: 10px;
+}
+.form-buttons button{
+  width:48%; /* buat jarak rapi */
+  background:#0026ff;
+  color:#fff;
+  border:none;
+  padding:10px;
+  border-radius:5px;
+  cursor:pointer;
+}
+.form-buttons button:hover{
+  background:#001bb3;
 }
 
-footer p {
-  margin: 4px 0;
+
+footer{
+  background: black;
+  color: white;
+  padding: 20px 50px;
+  margin-top: 50px;
+
 }
 
 .footer-container {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 20px;
 }
-
+.footer-left{
+  font-size:14px
+}
 .back-top {
   display: inline-block;
   background: #0044ff;
   color: white;
   padding: 10px 20px;
+  margin: 10px 0;
   border-radius: 30px;
   text-decoration: none;
-}
-.back-top:hover {
-  background: #002db3;
+  font-weight: 500;
+  transition: all 0.3s ease; 
+  margin-left: 60px;
 }
 
-/* Animations */
-@keyframes bodyFade { to { opacity: 1; } }
+.back-top i {
+  margin-right: 8px;
+}
+
+.back-top:hover {
+  background: #002db3;
+  transform: translateY(-6px); 
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3); 
+}
+
+
+
+

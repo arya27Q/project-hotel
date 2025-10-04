@@ -247,7 +247,7 @@ nav a:hover {
 
 .my-booking h2 {
   color: #004aad;
-   border:2px solid #000095;
+  border:2px solid #000095;
    padding: 10px 0;
    margin: 10px;
    border-radius: 10px;
@@ -260,7 +260,7 @@ nav a:hover {
   border-bottom: 1px solid #000000;
 }
 .my-booking li {
-   margin-bottom: 8px;
+  margin-bottom: 8px;
   font-size: 15px;
   color: #333;
   padding: 6px 0;        
@@ -270,21 +270,23 @@ nav a:hover {
   border-bottom: none;   
 }
 
-.btn-book  { 
+ .btn-book {
+  display: inline-block;
   background: #0026ff;
   color: #ffffff !important;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s ease;
   margin-top: 10px;
+  text-decoration: none;
 }
+
 
 .btn-book:hover {
   background: #001bb3;
-  transform: scale(1.05) !important;
+  transform: scale(1.05);
 }
 
 footer {

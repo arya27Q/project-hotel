@@ -1,76 +1,113 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const checkbox = document.querySelector(".checkbox input");
-  const payBtn = document.querySelector(".pay-btn");
-  const icons = document.querySelectorAll(".icons img");
-  const userBtn = document.getElementById("userBtn");
+// ---------------- Booking list & total ----------------
+document.addEventListener("DOMContentLoaded", function() {
+  // Dummy data booking
+  const dummyBooking = {
+    list:[
+      {roomName:"Deluxe Room", checkin:"2025-10-05", checkout:"2025-10-06", price:500000},
+      {roomName:"Suite", checkin:"2025-10-05", checkout:"2025-10-07", price:1000000}
+    ],
+    total:1500000
+  };
+  localStorage.setItem("bookingData", JSON.stringify(dummyBooking));
 
-  let selectedMethod = null;
-  let isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const username = localStorage.getItem("username");
+  const data = localStorage.getItem("bookingData");
+  if (!data) return;
+  const booking = JSON.parse(data);
 
-  // Ubah tampilan header sesuai login
-  if (isLoggedIn) {
-    userBtn.innerHTML = '<i class="fa-solid fa-right-from-bracket"></i> Logout';
-    userBtn.href = "#";
-    userBtn.style.color = "red";
-    userBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("username");
-      alert("🚪 You have been logged out.");
-      window.location.href = "login.html";
-    });
+  const listContainer = document.getElementById("booking-list");
+  if(listContainer){
+    listContainer.innerHTML = booking.list.map(item => `
+      <li>${item.roomName} (${item.checkin} → ${item.checkout}) - Rp.${item.price.toLocaleString()}</li>
+    `).join("");
+  }
+
+  const totalPrice = document.getElementById("total-price");
+  if(totalPrice) totalPrice.textContent = `Rp.${booking.total.toLocaleString()}`;
+});
+
+// ---------------- Show Payment Floating Form ----------------
+window.showPayment = function(icon){
+  const overlay = document.getElementById("overlay");
+  const floatingForm = document.getElementById("floatingForm");
+  const title = document.getElementById("floatingTitle");
+  const formContent = document.getElementById("formContent");
+  const confirmBtn = document.getElementById("confirmBtn");
+
+  overlay.style.display = "block";
+  floatingForm.style.display = "block";
+
+  confirmBtn.disabled = true; // tombol nonaktif awalnya
+
+  // Isi form sesuai metode
+  switch(icon.dataset.method){
+    case "E-Wallet":
+      title.textContent="E-Wallet Payment";
+      formContent.innerHTML = `<label>Nomor E-Wallet:</label><input type="text" id="inputField" placeholder="Masukkan nomor e-wallet">`;
+      break;
+    case "Visa":
+      title.textContent="Visa Payment";
+      formContent.innerHTML = `
+        <label>Nomor Kartu:</label><input type="text" id="inputField" placeholder="Masukkan nomor kartu">
+        <label>CVV:</label><input type="text" id="cvvField" placeholder="CVV">
+      `;
+      break;
+    case "MasterCard":
+      title.textContent="MasterCard Payment";
+      formContent.innerHTML = `
+        <label>Nomor Kartu:</label><input type="text" id="inputField" placeholder="Masukkan nomor kartu">
+        <label>CVV:</label><input type="text" id="cvvField" placeholder="CVV">
+      `;
+      break;
+    case "QRIS":
+      title.textContent="QRIS Payment";
+      formContent.innerHTML = `<p>Scan QR ini untuk bayar:</p><img src="/img/qris.webp" alt="QRIS" width="200">`;
+      confirmBtn.disabled = false; // QRIS tidak perlu input, bisa langsung bayar
+      break;
+  }
+
+  // Cek input jika ada
+  const inputField = document.getElementById("inputField");
+  const cvvField = document.getElementById("cvvField");
+
+  if(inputField){
+    inputField.addEventListener("input", checkInput);
+  }
+  if(cvvField){
+    cvvField.addEventListener("input", checkInput);
+  }
+
+  function checkInput(){
+    if(inputField && cvvField){
+      confirmBtn.disabled = !(inputField.value.trim() && cvvField.value.trim());
+    } else if(inputField){
+      confirmBtn.disabled = !inputField.value.trim();
+    }
+  }
+
+  // Tombol konfirmasi
+  confirmBtn.onclick = function(){
+    alert(`${icon.dataset.method} berhasil dibayar!`);
+    floatingForm.style.display="none";
+    overlay.style.display="none";
+  };
+
+  // Tombol tutup
+  document.getElementById("closeForm").onclick = function(){
+    floatingForm.style.display="none";
+    overlay.style.display="none";
+  };
+};
+
+
+
+// ---------------- Pay Now Button (cek login) ----------------
+const payBtn = document.querySelector(".pay-btn");
+let isLoggedIn = localStorage.getItem("isLoggedIn")==="true";
+
+payBtn.addEventListener("click", function(){
+  if(!isLoggedIn){
+    window.location.href="login.html";
   } else {
-    userBtn.innerHTML = '<i class="fa-solid fa-user"></i> Login';
-    userBtn.href = "login.html";
-    userBtn.style.color = "#0026ff";
+    alert("Memproses pembayaran...");
   }
-
-  function disablePay() {
-    payBtn.disabled = true;
-    payBtn.style.opacity = "0.6";
-    payBtn.style.cursor = "not-allowed";
-  }
-  function enablePay() {
-    payBtn.disabled = false;
-    payBtn.style.opacity = "1";
-    payBtn.style.cursor = "pointer";
-  }
-  disablePay();
-
-  // pilih metode pembayaran
-  icons.forEach(icon => {
-    icon.addEventListener("click", () => {
-      icons.forEach(i => i.style.border = "none");
-      icon.style.border = "3px solid #0044ff";
-      icon.style.borderRadius = "6px";
-      selectedMethod = icon.dataset.method;
-      if (checkbox.checked) enablePay();
-    });
-  });
-
-  // centang persetujuan
-  checkbox.addEventListener("change", () => {
-    if (checkbox.checked && selectedMethod) {
-      enablePay();
-    } else {
-      disablePay();
-    }
-  });
-
-  // klik bayar
-  payBtn.addEventListener("click", () => {
-    if (!isLoggedIn) {
-      alert("⚠️ Anda harus login terlebih dahulu.");
-      window.location.href = "login.html";
-      return;
-    }
-
-    if (selectedMethod) {
-      const user = username || "Guest";
-      alert(`✅ Payment successful!\n\nUser: ${user}\nMethod: ${selectedMethod}\nThank you for your booking at Luxury Hotel.`);
-    } else {
-      alert("⚠️ Please select a payment method first.");
-    }
-  });
 });

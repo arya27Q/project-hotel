@@ -1,13 +1,13 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luxury Hotel - Payment</title>
+  <title>Luxury Hotel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="/css/payment_reservation_room.css">
 </head>
 <body id="top">
+
 
   <header>
     <img src="/img/logo.png" alt="Luxury Hotel">
@@ -18,18 +18,20 @@
       <a href="facilities.html">Facilities</a>
       <a href="about.html">About us</a>
     </nav>
-    <a class="a" href="login.html" id="userBtn"><i class="fa-solid fa-user"></i> Login</a>
+    <a class="a" href="create_account.html"><i class="fa-solid fa-user"></i></a>
   </header>
 
+  
   <section class="background">
-    <h1>PAYMENT</h1>
+    <h1> PAYMENT  </h1>
+  </section>
+<section class="bg">
+ <section class="method">
+    <h3>PAYMENT METHOD</h3>
   </section>
 
-
-  <main class="payment-container">
-    <h2>Payment Methods</h2>
+  <section class="payment-container">
     <div class="payment-box">
- 
       <div class="payment-methods">
         <label class="checkbox">
           <input type="checkbox">
@@ -38,40 +40,50 @@
           <a href="#">Privacy policy</a>.
         </label>
 
+
         <div class="method-card">
           <p><strong>E-Payment</strong><br>Visa, Master Card, E-wallet</p>
           <div class="icons">
-            <img src="/img/qris.png" alt="QRIS" data-method="QRIS">
-            <img src="/img/visa.png" alt="Visa" data-method="Visa">
-            <img src="/img/mastercard.png" alt="Mastercard" data-method="MasterCard">
-            <img src="/img/ewallet.png" alt="ewallet" data-method="E-Wallet">
+            <i class="fa-solid fa-qrcode" title="QRIS" data-method="QRIS" onclick="showPayment(this)"></i>
+            <i class="fa-brands fa-cc-visa" title="Visa" data-method="Visa" onclick="showPayment(this)"></i>
+            <i class="fa-brands fa-cc-mastercard" title="MasterCard" data-method="MasterCard" onclick="showPayment(this)"></i>
+            <i class="fa-solid fa-wallet" title="E-Wallet" data-method="E-Wallet" onclick="showPayment(this)"></i>
           </div>
+        </div>
 
-          <button class="pay-btn">Pay Rp.2.250.000,00</button>
+        <div id="paymentMenu" class="payment-menu">
+          <p>Pilih metode pembayaran:</p>
+          <button id="ewalletBtn">E-Wallet</button>
+          <button id="visaBtn">Visa</button>
+          <button id="masterBtn">MasterCard</button>
         </div>
       </div>
+      <button class="pay-btn">pay now</button>
+     <div id="overlay"></div>
+<div id="floatingForm">
+  <h4 id="floatingTitle"></h4>
+  <div id="formContent"></div>
+  <div class="form-buttons">
+    <button id="confirmBtn" disabled>Konfirmasi</button>
+    <button id="closeForm">Tutup</button>
+  </div>
+</div>
 
-      
 
-      <aside class="booking-summary">
-        <h3>MY BOOKING</h3>
-        <p><strong>2 Night</strong> SUITE ROOM</p>
-        <p><strong>10 Agustus - 12 Agustus</strong><br>
-          Saturday From 14:00 – Monday To 6:00
-        </p>
-        <ul>
-          <li>2 ADULT</li>
-          <li>1 KID</li>
-          <li>EXTRA BED</li>
-          <li>EXTRA BREAKFAST</li>
-          <li>3 ROOMS</li>
-        </ul>
-        <h4>Rp.2.250.000,00</h4>
-      </aside>
+</div>
+
+</div>
+
     </div>
-  </main>
-
-
+  
+    <div class="payment-box">
+    <h3>My Booking</h3>
+    <ul id="booking-list"></ul>
+    <p>Total : <span id="total-price">0</span></p>
+  </div>
+  </section>
+  </section>
+  
   <footer>
     <div class="footer-container">
       <div class="footer-left">
@@ -94,6 +106,6 @@
 
   
   <script src="/js/payment_reservation_room.js"></script>
-  
+  <script src="/js/payment.js"></script>
 </body>
 </html>
