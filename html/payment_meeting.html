@@ -4,9 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luxury Hotel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="/css/payment_reservation_meeting.css">
+  <link rel="stylesheet" href="/css/payment_meeting.css">
 </head>
 <body id="top">
+
+
   <header>
     <img src="/img/logo.png" alt="Luxury Hotel">
     <nav>
@@ -18,7 +20,7 @@
     </nav>
     <a class="a" href="create_account.html"><i class="fa-solid fa-user"></i></a>
   </header>
-  
+
   <section class="background">
     <h1> PAYMENT  </h1>
   </section>
@@ -27,55 +29,67 @@
     <h3>PAYMENT METHOD</h3>
   </section>
 
-  <section class="payment-container">
+<section class="payment-section">
+
+  <div class="payment-container">
     <div class="payment-box">
-      <div class="payment-methods">
-        <label class="checkbox">
+      <div class="consent">
+        <label>
           <input type="checkbox">
           I give my <strong>Consent to personal data processing</strong> and confirm that I have read the 
           <a href="#">Cancellation policy</a>, the <a href="#">Online booking</a> rules and the 
           <a href="#">Privacy policy</a>.
         </label>
+      </div>
 
-        <div class="method-card">
+      <div class="method-card">
+        <div class="left-content">
           <p><strong>E-Payment</strong><br>Visa, Master Card, E-wallet</p>
           <div class="icons">
-            <i class="fa-solid fa-qrcode" title="QRIS" data-method="QRIS" onclick="showPayment(this)"></i>
-            <i class="fa-brands fa-cc-visa" title="Visa" data-method="Visa" onclick="showPayment(this)"></i>
-            <i class="fa-brands fa-cc-mastercard" title="MasterCard" data-method="MasterCard" onclick="showPayment(this)"></i>
-            <i class="fa-solid fa-wallet" title="E-Wallet" data-method="E-Wallet" onclick="showPayment(this)"></i>
+            <i class="fa-solid fa-qrcode"></i>
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-solid fa-wallet"></i>
           </div>
         </div>
 
-        <div id="paymentMenu" class="payment-menu">
-          <p>Pilih metode pembayaran:</p>
-          <button id="ewalletBtn">E-Wallet</button>
-          <button id="visaBtn">Visa</button>
-          <button id="masterBtn">MasterCard</button>
+        <div class="right-content">
+          <button class="pay-btn">Pay Now</button>
         </div>
       </div>
-      <button class="pay-btn">pay now</button>
-     <div id="overlay"></div>
-<div id="floatingForm">
-  <h4 id="floatingTitle"></h4>
-  <div id="formContent"></div>
-  <div class="form-buttons">
-    <button id="confirmBtn" disabled>Konfirmasi</button>
-    <button id="closeForm">Tutup</button>
-  </div>
-</div>
-</div>
-</div>
-</div>
 
-    <div class="payment-box">
+     
+      <div id="paymentMenu" class="payment-menu">
+        <p>Pilih metode pembayaran:</p>
+        <button data-method="E-Wallet" onclick="showPayment(this)">E-Wallet</button>
+        <button data-method="Visa" onclick="showPayment(this)">Visa</button>
+        <button data-method="MasterCard" onclick="showPayment(this)">MasterCard</button>
+        <button data-method="QRIS" onclick="showPayment(this)">QRIS</button>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="payment-box">
     <h3>My Booking</h3>
     <ul id="booking-list"></ul>
     <p>Total : <span id="total-price">0</span></p>
   </div>
-  </section>
-  </section>
-  
+</section>
+
+
+<div id="overlay"></div>
+<div id="floatingForm">
+  <h4 id="floatingTitle"></h4>
+  <div id="formContent"></div>
+  <div id="buttonGroup">
+  <button id="confirmBtn">Confirm</button>
+  <button id="closeForm">Close</button>
+</div>
+</div>
+</section>
+</section>
+
   <footer>
     <div class="footer-container">
       <div class="footer-left">
@@ -96,8 +110,7 @@
     </div>
   </footer>
 
+  <script src="/js/payment_reservation_Meetingroom.js"></script>
   
-  <script src="/js/payment_reservation_room.js"></script>
-  <script src="/js/payment.js"></script>
 </body>
 </html>

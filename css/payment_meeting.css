@@ -7,6 +7,8 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  padding: 0;
+  
 }
 
 header {
@@ -85,7 +87,7 @@ nav a:hover {
 }
 
 .bg{
-   background: #0026ff;
+   background: #fff1cf;
 
   padding: 40px 20px; 
   text-align: center;
@@ -99,17 +101,111 @@ nav a:hover {
   border-radius: 15px;     
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
 }
+
 .method h3 {
 font-size: 20px;
   color: #333;
 
 }
+
+
 .payment-container {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  margin: 20px;
+
 }
+
+
+.payment-box {
+  flex: 2;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 900px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+
+.payment-box label {
+  display: block;
+  text-align: left;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+
+.method-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.right-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+}
+
+.icons {
+  display: flex;
+  gap: 18px;
+  margin-top: 8px
+}
+
+.payment-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.payment-container {
+  flex: 2;
+}
+
+.payment-section > .payment-box {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.payment-menu button {
+  margin: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0026ff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.payment-menu button:hover {
+  background-color: #001bb3;
+  transform: scale(1.05);
+}
+
+input[type="checkbox"] {
+  accent-color: #0044ff; /* warna biru khas luxury hotel kamu */
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
 .pay-btn {
   display: inline-block;
   background: #0026ff;
@@ -126,95 +222,121 @@ font-size: 20px;
   transform: scale(1.05);
 }
 
-.payment-box {
-  flex: 2;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 900px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
- 
-}
-
-.payment-box ul{
-  list-style: none; 
-  padding: 0;
-  margin: 0;        
-  
-}
-
-.payment-box h3,
-.payment-box p,
-.payment-box ul,
-.payment-box label {
-  text-align: left;
-}
-
-
-.payment-menu {
-  position: fixed;
-  bottom: 100px;
-  left: 200px;
+#overlay {
   display: none;
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
   z-index: 999;
-  text-align: center !important;
 }
 
-
-
-.payment-menu p {
-  margin-bottom: 10px; 
+#floatingForm {
+  display: none;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+  width: 340px;
+  max-width: 90%;
+  font-family: 'Poppins', sans-serif;
 }
-.payment-box{
+
+#floatingForm h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+#formContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#formContent label {
+  display: block;
   text-align: left;
-}
-#overlay{
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.5);
-  z-index:999;
-}
-#floatingForm{
-  display:none;
-  position:fixed;
-  top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.25);
-  z-index:1000;
-  width:310px;
-}
-#floatingForm input{
-  width:100%;
-  padding:8px;
-  margin:5px 0 10px 0;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
 }
 
-.form-buttons{
+#formContent input[type="text"],
+#formContent input[type="number"],
+#formContent input[type="date"],
+#formContent input[type="time"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#formContent input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0,123,255,0.4);
+}
+
+#buttonGroup {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+#confirmBtn,
+#closeForm {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+#confirmBtn {
+  background: #007bff;
+  color: white;
+}
+
+#confirmBtn:disabled {
+  background: #a7caff;
+  cursor: not-allowed;
+}
+
+#confirmBtn:hover:not(:disabled) {
+  background: #003a92;
+  transform: translateY(-2px);
+}
+
+#closeForm {
+  background: #e0e0e0;
+  color: #333;
+}
+
+#closeForm:hover {
+  background: #616161;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+#booking-list {
+  list-style-type: decimal;
+  padding-left: 20px;
   margin-top: 10px;
+  line-height: 1.6;
 }
-.form-buttons button{
-  width:48%; /* buat jarak rapi */
-  background:#0026ff;
-  color:#fff;
-  border:none;
-  padding:10px;
-  border-radius:5px;
-  cursor:pointer;
-}
-.form-buttons button:hover{
-  background:#001bb3;
-}
+
 
 
 footer{

@@ -70,21 +70,22 @@
         </section>
 
     <section class="reservation">
-      <div class="hotel-info">
-       <div class="date-form">
+  <div class="hotel-info">
+  <div class="date-form">
   <label>
-    Check-in
+    Meeting Date
     <input type="date" id="meetingDate" />
   </label>
   <label>
-    Check-out
-    <input type="date" id="startTime" />
+    Start Time
+    <input type="time" id="startTime" />
   </label>
   <label>
-    Order date
-    <input type="date" id="endTime" />
+    End Time
+    <input type="time" id="endTime" />
   </label>
 </div>
+
 
       <div class="booking-list">
         <div class="room-card">
@@ -92,7 +93,7 @@
           <h3>Grand Ballroom</h3>
           <p>Rp.2.000.000,00</p>
           <div class="options">
-            <button onclick="addBooking('Grand Ballroom', 2000000)">select </button>
+            <button onclick="addBooking('grand ballroom', 2000000)">select </button>
           </div>
         </div>
 
@@ -124,15 +125,13 @@
           </div>
         </div>
       </div>
+<div class="my-booking">
+  <h2>My Booking</h2>
+  <ul id="booking-list"></ul>
+  <p>Total : <span id="total-price">0</span></p>
+  <a href="payment_meeting.html" class="btn-book">Book Now</a>
+</div>
 
-      
-
-      <div class="my-booking">
-        <h2>My Booking</h2>
-        <ul id="booking-list"></ul>
-        <p>Total : <span id="total-price">0</span></p>
-        <button class="btn-book">Book Now</button>
-      </div>
       </div>
     </section>
 
@@ -156,6 +155,6 @@
       </div>
     </footer>
 
-    <script src="/js/reservation_meeting.room.js"></script>
+    <script src="/js/reservasi_meeting_room.js"></script>
   </body>
 </html>

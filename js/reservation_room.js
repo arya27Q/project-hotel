@@ -16,7 +16,7 @@ function addBooking(roomName, price) {
 }
 
 function renderBooking() {
-  const listElement = document.getElementById("booking-list");
+  const listElement = document.getElementById("my-booking-list");
   const totalElement = document.getElementById("total-price");
   
   listElement.innerHTML = "";
