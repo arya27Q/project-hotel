@@ -48,7 +48,6 @@ nav a:hover {
 }
 
 .background {
-  background: url('hero.jpg') center/cover no-repeat;
   height: 60vh;
   display: flex;
   flex-direction: column;
@@ -59,7 +58,7 @@ nav a:hover {
   padding: 20px;
   margin-bottom: 50px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.356), rgba(0, 0, 0, 0.4)),
-  url('/img/bayar.png');
+  url('/img/image\ 30\ \(1\).png');
   background-blend-mode: darken;
 
   

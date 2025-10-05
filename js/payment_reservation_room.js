@@ -60,11 +60,15 @@ window.showPayment = function(icon){
         <label>CVV:</label><input type="text" id="cvvField" placeholder="CVV">
       `;
       break;
-    case "QRIS":
-      title.textContent="QRIS Payment";
-      formContent.innerHTML = `<p>Scan QR ini untuk bayar:</p><img src="/img/qris.webp" alt="QRIS" width="200">`;
-      confirmBtn.disabled = false; // QRIS tidak perlu input, bisa langsung bayar
-      break;
+   case "QRIS":
+  title.textContent = "QRIS Payment";
+  formContent.innerHTML = `
+    <p style="text-align:center; margin-bottom:5px;">Scan QR ini untuk bayar : </p>
+    <img src="/img/qris.webp" alt="QRIS" width="200" 
+    style="display:block; margin:5px auto 0 auto; border-radius:10px;">
+  `;
+  confirmBtn.disabled = false;
+  break;
   }
 
   const inputField = document.getElementById("inputField");
