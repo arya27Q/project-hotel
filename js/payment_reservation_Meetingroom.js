@@ -1,7 +1,5 @@
 const bookingList = document.getElementById("booking-list");
 const totalPriceEl = document.getElementById("total-price");
-
-// Ambil dari localStorage (bookingMeeting)
 let bookingData = JSON.parse(localStorage.getItem("bookingMeeting")) || { list: [], total: 0 };
 updateBookingList();
 
@@ -29,8 +27,6 @@ function addBooking(meetingName, price) {
   updateBookingList();
 }
 
-
-// ---------------- Overlay Payment ----------------
 window.showPayment = function(icon){
   const overlay = document.getElementById("overlay");
   const floatingForm = document.getElementById("floatingForm");
