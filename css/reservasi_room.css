@@ -326,3 +326,100 @@ footer {
   transform: translateY(-6px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gentleRotate {
+  0% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+  100% { transform: rotate(0); }
+}
+
+
+@keyframes gradientText {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+header {
+  animation: slideDown 1s ease forwards;
+}
+
+header img {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+nav a {
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+
+section, .why, .hotel-title, .reservation, .my-booking, footer {
+  opacity: 0;
+  animation: fadeInUp 1.2s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.room-card {
+  animation: zoomIn 1s ease forwards;
+}
+
+button, .button2, .a, .back-top {
+  position: relative;
+  overflow: hidden;
+}
+
+button::after, .button2::after, .a::after, .back-top::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+}
+
+button:hover::after, .button2:hover::after, .a:hover::after, .back-top:hover::after {
+  left: 100%;
+}
+
+
+footer {
+  animation: fadeIn 2s ease forwards;
+}

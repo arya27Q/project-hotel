@@ -6,6 +6,23 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body *:not(.btn-book) {
+  opacity: 0;
+  animation: fadeSlide 1s ease forwards;
 }
 
 header {
@@ -18,12 +35,11 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: inset 0 0 10px rgba(72, 72, 72, 0.5);
- 
+  animation-delay: 0.2s;
 }
 
 header img {
   height: 70px;
- 
 }
 
 nav a {
@@ -34,14 +50,15 @@ nav a {
   padding: 8px 15px;
   border-radius: 5px;
   display: inline-block;
-  
+  transition: all 0.3s ease;
 }
 nav a:hover {
   background: #0026ff;
   color: #ffffff;
   transform: scale(1.1);
-  transition: 0.3s;
 }
+
+
 .background {
   height: 60vh;
   display: flex;
@@ -54,46 +71,9 @@ nav a:hover {
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
   url('/img/room.avif');
   background-blend-mode: darken;
-
-}
-
-.background h1 {
-  font-size: 7rem;
-  margin-top: 10px;
-  display: inline-block;
-}
-
-.a {
-  color: #0026ff;
-  padding: 12px 18px;
-  border-radius: 25px;
-  display: inline-block;
-  transition: background 0.3s, color 0.3s, transform 0.3s;
-
-}
-.a:hover {
-  background: #0026ff;
-  color: #ffffff;
-  transform: scale(1.1);
-}
-
-
-
-
-
-.background {
- background: url('hero.jpg') center/cover no-repeat;
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-  url('/img/room.avif');
-  background-blend-mode: darken;
+  background-size: cover;
+  background-position: center;
+  animation-delay: 0.3s;
 }
 
 .background h1 {
@@ -103,6 +83,7 @@ nav a:hover {
   text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 
+
 .paragrapht1 {
   max-width: 1100px;
   margin: 50px auto;
@@ -111,13 +92,8 @@ nav a:hover {
 }
 
 .paragrapht1 h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   font-size: 24px;
   font-weight: bold;
-  margin: 40px 10px;
   margin-bottom: 30px;
 }
 
@@ -125,10 +101,10 @@ nav a:hover {
   font-size: 20px;
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 50px;
+  margin: 0 auto 70px;
   line-height: 1.6;
-  margin-bottom: 70px;
 }
+
 
 .hotel-rooms {
   background: #fffde9;
@@ -142,6 +118,7 @@ nav a:hover {
   color: #004aad;
 }
 
+
 .room-box {
   max-width: 1100px;
   background: #fff;
@@ -150,12 +127,22 @@ nav a:hover {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.room-box:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
 .room-box img {
   width: 50%;
   object-fit: cover;
-  
+  transition: transform 0.6s ease;
+}
+
+.room-box:hover img {
+  transform: scale(1.08);
 }
 
 .room-info {
@@ -165,6 +152,7 @@ nav a:hover {
   flex-direction: column;
   justify-content: flex-start;
 }
+
 
 .room-info-top {
   display: flex;
@@ -187,6 +175,12 @@ nav a:hover {
   display: flex;
   align-items: center;
   gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.room-info .icons span:hover {
+  background: #0026ff;
+  transform: scale(1.1);
 }
 
 .room-info p {
@@ -194,34 +188,28 @@ nav a:hover {
   color: #333;
   margin-top: 15px;
 }
-.card-room {
-  width: 100px;
-  border-radius: 6px;
-  background:#004aad;
-  margin: 10px 0 10px ; 
-  margin-top: 10rem;
-  text-align: center; 
-}
 
-.h3 {
-  font-size: 10px;
-  color: #ffffff;
-}
 
+.card-room,
 .card-room2 {
   width: 100px;
   border-radius: 6px;
-  background:#004aad;
-  margin: 10px 0 10px ; 
+  background: #004aad;
+  margin: 10px 0;
   margin-top: 10rem;
-  text-align: center; 
-
+  text-align: center;
+  transition: all 0.3s ease;
 }
- .h4 {
-    font-size: 10px;
-    color: #ffffff
+.card-room:hover,
+.card-room2:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 70, 255, 0.4);
 }
 
+.h3, .h4 {
+  font-size: 10px;
+  color: #ffffff;
+}
 
 .book-now {
   text-align: center;
@@ -236,24 +224,27 @@ nav a:hover {
   font-weight: bold;
   padding: 15px 40px;
   border-radius: 20px;
-  transition: 0.3s;
   display: inline-block;
   text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: relative; 
+  z-index: 1;
 }
 
 .btn-book:hover {
   background: #0036b8;
-  transform: scale(1.05);
-
+  transform: translateY(-6px) scale(1.07); 
+  box-shadow: 0 12px 25px rgba(0, 70, 255, 0.45); 
 }
 
-footer{
+footer {
   background: black;
   color: white;
   padding: 20px 50px;
   margin-top: 50px;
-
 }
+
 .footer-container {
   display: flex;
   justify-content: space-between;
@@ -261,9 +252,12 @@ footer{
   flex-wrap: wrap; 
   gap: 20px;
 }
-.footer-left{
-  font-size:14px
+
+.footer-left {
+  font-size:14px;
 }
+
+
 .back-top {
   display: inline-block;
   background: #0044ff;
@@ -286,4 +280,3 @@ footer{
   transform: translateY(-6px); 
   box-shadow: 0 6px 15px rgba(0,0,0,0.3); 
 }
-

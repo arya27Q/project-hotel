@@ -6,8 +6,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  animation-delay: 0.5s;
-  animation: fadeSlide 1s ease forwards;
 }
 
 header {
@@ -20,9 +18,7 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: inset 0 0 10px rgba(72, 72, 72, 0.5);
-  opacity: 0;
-  animation: fadeSlide 0.8s ease forwards;
-  animation-delay: 0s;
+ 
 }
 
 header img {
@@ -40,7 +36,7 @@ nav a {
   padding: 8px 15px;
   border-radius: 5px;
   display: inline-block;
-opacity: 0;
+  opacity: 0;
   animation: fadeSlide 0.8s ease forwards;
   animation-delay: 0.2s;
 }
@@ -63,7 +59,6 @@ nav a:hover {
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
   url('https://images.unsplash.com/photo-1573167507387-6b4b98cb7c13?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-blend-mode: darken;
-
 }
 
 .background-img h1 {
@@ -92,14 +87,15 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   margin: 40px 10px;
   margin-bottom: 30px;
+  
 }
 
 .p2 {
-  font-size: 14px;
+  font-size: 20px;
   text-align: center;
   max-width: 700px;
   margin: 0 auto 50px;
@@ -109,7 +105,6 @@ nav a:hover {
 
 
 .background {
- background: url('hero.jpg') center/cover no-repeat;
   height: 60vh;
   display: flex;
   flex-direction: column;
@@ -227,29 +222,33 @@ nav a:hover {
   color: #ffffff;
 }
 
-
 .book-now {
   text-align: center;
   padding: 60px 20px;
   background: #fffde9;
 }
 
-.btn-book {
+.btn-book2 {
   background: #004aed;
   color: #fff;
   font-size: 20px;
   font-weight: bold;
   padding: 15px 40px;
   border-radius: 20px;
-  transition: 0.3s !important;
   display: inline-block;
   text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: relative; 
+  z-index: 1;
 }
 
-.btn-book:hover {
+.btn-book2:hover {
   background: #0036b8;
-  transform: scale(1.05) !important; 
+  transform: translateY(-6px) scale(1.07); 
+  box-shadow: 0 12px 25px rgba(0, 70, 255, 0.45); 
 }
+
 
 footer{
   background: black;
@@ -291,37 +290,84 @@ footer{
   box-shadow: 0 6px 15px rgba(0,0,0,0.3); 
 }
 
-@keyframes fadeSlide {
-  from {
+@keyframes fadeInUp {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-
-@keyframes fadeSlide {
-  from {
+@keyframes slideDown {
+  0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(-30px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-body * {
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gentleRotate {
+  0% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+  100% { transform: rotate(0); }
+}
+
+
+@keyframes gradientText {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+header {
+  animation: slideDown 1s ease forwards;
+}
+
+header img {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+nav a {
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+
+section, .why, .hotel-title, .reservation, .my-booking, footer {
   opacity: 0;
-  animation: fadeSlide 1s ease forwards;
+  animation: fadeInUp 1.2s ease forwards;
+  animation-delay: 0.3s;
 }
 
-body *:nth-child(1) { animation-delay: 0.2s; }
-body *:nth-child(2) { animation-delay: 0.4s; }
-body *:nth-child(3) { animation-delay: 0.6s; }
-body *:nth-child(4) { animation-delay: 0.8s; }
-body *:nth-child(5) { animation-delay: 1s; }
-body *:nth-child(6) { animation-delay: 1.2s; }
+.room-card {
+  animation: zoomIn 1s ease forwards;
+}
+
+
+
+
+footer {
+  animation: fadeIn 2s ease forwards;
+}
+
